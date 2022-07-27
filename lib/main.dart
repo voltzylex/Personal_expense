@@ -52,15 +52,29 @@ class MyHomepage extends StatelessWidget {
                       margin:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.black),
+                        border: Border.all(width: 2, color: Colors.purple),
                       ),
                       padding: EdgeInsets.all(10),
-                      child: Text("money"),
+                      child: Text(
+                        tx.amount!.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.purple),
+                      ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text('part 1'),
-                        Text('part 2'),
+                        Text(
+                          tx.title!,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                        Text(
+                          tx.date!.toString(),
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
                     )
                   ],
