@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personalexpense/transiction.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -7,7 +8,20 @@ void main() {
 }
 
 class MyHomepage extends StatelessWidget {
-  const MyHomepage({Key? key}) : super(key: key);
+  final List<Transaction> transaction = [
+    Transaction(
+      amount: 69.99,
+      id: 't1',
+      title: 'New Shoes',
+      date: DateTime.now(),
+    ),
+    Transaction(
+      amount: 69.99,
+      id: 't2',
+      title: 'New Bag',
+      date: DateTime.now(),
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +43,21 @@ class MyHomepage extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Card(
-            color: Colors.red,
-            child: Center(child: Text("List of tx")),
+          Column(
+            children: transaction.map((tx) {
+              return Card(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Text("money"),
+                    ),
+                    Column(
+                      children: [Text('part 1'), Text('part 2')],
+                    )
+                  ],
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),
