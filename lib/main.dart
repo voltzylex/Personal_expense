@@ -49,10 +49,19 @@ class MyHomepage extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: Colors.black),
+                      ),
+                      padding: EdgeInsets.all(10),
                       child: Text("money"),
                     ),
                     Column(
-                      children: [Text('part 1'), Text('part 2')],
+                      children: <Widget>[
+                        Text('part 1'),
+                        Text('part 2'),
+                      ],
                     )
                   ],
                 ),
