@@ -31,14 +31,40 @@ class MyHomepage extends StatelessWidget {
         title: Text("Flutter App !"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
             width: double.infinity,
             child: Card(
               color: Colors.blue,
               child: Text("This is body"),
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              margin: EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Title",
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Amount",
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Add Tansaction",
+                        style: TextStyle(color: Colors.purple),
+                      )),
+                ],
+              ),
             ),
           ),
           SizedBox(
