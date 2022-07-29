@@ -8,8 +8,8 @@ class TransictionListState extends StatelessWidget {
   TransictionListState(this.transaction);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: transaction.map((tx) {
+    return ListView.builder(
+      itemBuilder: (ctx,index){
         return Card(
           child: Row(
             children: [
@@ -20,7 +20,7 @@ class TransictionListState extends StatelessWidget {
                 ),
                 padding: EdgeInsets.all(10),
                 child: Text(
-                  '\$${tx.amount}',
+                  '\$${transaction[index].amount}',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -31,11 +31,11 @@ class TransictionListState extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    tx.title!,
+                    transaction[index].title!,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Text(
-                    DateFormat('yyyy-MM-dd').format(tx.date!),
+                    DateFormat('yyyy-MM-dd').format(transaction[index].date!),
                     style: TextStyle(color: Colors.grey),
                   ),
                 ],
@@ -43,7 +43,8 @@ class TransictionListState extends StatelessWidget {
             ],
           ),
         );
-      }).toList(),
+      },
+      itemCount: transaction.length,
     );
   }
 }
