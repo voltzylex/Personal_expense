@@ -4,6 +4,10 @@ class NewTransaction extends StatelessWidget {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
   final Function addTx;
+  void submitValue() {
+    addTx(titleController.text, double.parse(amountController.text));
+  }
+
   NewTransaction(this.addTx);
   @override
   Widget build(BuildContext context) {
@@ -18,23 +22,20 @@ class NewTransaction extends StatelessWidget {
                 labelText: "Title",
               ),
               controller: titleController,
-              // onChanged: (val) {
-              //   titleInput = val;
-              // },
             ),
             TextField(
               decoration: InputDecoration(
                 labelText: "Amount",
               ),
               controller: amountController,
-              // onChanged: (val) {
-              //   amountInput = val;
-              // },
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) {
+                submitValue();
+              },
             ),
             TextButton(
                 onPressed: () {
-                  addTx(titleController.text,
-                      double.parse(amountController.text));
+                  submitValue();
                 },
                 child: Text(
                   "Add Tansaction",
