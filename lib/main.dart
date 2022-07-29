@@ -4,6 +4,7 @@ import 'package:personalexpense/widgets/user_transaction.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: MyHomepage(),
   ));
 }
@@ -16,6 +17,7 @@ class MyHomepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
         title: Text("Flutter App "),
       ),
       body: Column(
@@ -31,6 +33,11 @@ class MyHomepage extends StatelessWidget {
           ),
           UserTransaction(),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }

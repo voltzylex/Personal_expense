@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:personalexpense/models/transiction.dart';
-import 'package:personalexpense/widgets/user_transaction.dart';
+
 
 class TransictionListState extends StatelessWidget {
   final List<Transaction> transaction;
